@@ -148,13 +148,17 @@ while True:
     #choice 3 bring up the upgrade menu
     elif choice == 3:
         clr()
+        maxed = ""
+        if stats["rs"] >= 51:
+           maxed = " -- max"
         try:
-         print("1: roll speed\n2: roll amount\n")
+         print(f"1: roll speed{maxed}\n2: roll amount\n")
         except ValueError:
             pass
         choice = input()
         #choice 1 is to roll faster
         if choice == "1":
+           if stats["rs"] < 51:
             try:
               amount = int(input("How many would you like to purchase?\n"))
             except ValueError:
@@ -207,7 +211,9 @@ while True:
         clr()
         best = ''
         for key in player:
-            if player[key] >= 25:
+            if key == "rainbow":
+               pass
+            elif player[key] >= 25:
                 best = key
         print(f"Your rarest avaiable color to juice is: {best}")
         color = input("Please enter a color:\n")
@@ -216,6 +222,7 @@ while True:
                 print("Error -- insufficient amount of color")
                 time.sleep(2)
             else:
+               if color != "rainbow":
                 player[color] -= 10
                 tempoutcomes = {}
                 for value in outcomes:
@@ -224,6 +231,11 @@ while True:
                 print("Transaction complete!")
                 time.sleep(2)
                 clr()
+               else:
+                  clr()
+                  print("No")
+                  time.sleep(2)
+                  clr()
         except KeyError:
             print("Error -- Invalid color")
             time.sleep(2)

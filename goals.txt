@@ -1,0 +1,8 @@
+for the next version of this rng game i need to:
+.make a user friendly interface
+.encrypted user accounts stored in a database
+.include classes into the main code
+.sql(mabey)
+.take advantage of apis
+.parse json files (whatever that means :p)
+.see if a dll file can help 
