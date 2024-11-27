@@ -109,6 +109,7 @@ while True:
                 print("You got:")
                 hex(f"{roll}(1/{(round(1/outcomes[roll]))})",hexdic[roll])
                 print(f"You have gained {round(0.5/outcomes[roll])} color drops")
+                stats["cd"] += round(0.5/outcomes[roll])
                 if outcomes[roll] < rarestroll[1]:
                     rarestroll = [roll, outcomes[roll]]
                 if roll in player:
